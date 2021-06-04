@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Tweet</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <style>
+        body{
+            background-color: rgb(180, 169, 169);
+        }
+        
+        .box{
+            height: 250px;
+            width: 250px;
+            border: 1px solid rgb(223, 8, 126);
+        }
+        .box2{
+            min-height: 250px;
+            min-width: 300px;
+            border: 1px solid rgb(223, 8, 126);
+            margin: 6%;
+            box-sizing: border-box;
+        }
+        .box3{
+            min-height: 20px;
+            min-width: 20px;
+            border: 1px solid rgb(223, 8, 126);
+            padding: 5px;
+            margin: 5px;
+        }
+        .middle{
+            margin-top: 20%;
+            margin-left: 12%;
+        }
+        .middle2{
+            margin-left: 25%;
+            margin-top: 12%;
+        }
+        .middle3{
+            margin-top: 8%;
+            margin-left: 15%;
+        }
+        .middle4{
+            margin-top: 20%;
+            margin-left: 37%;
+            color: black;
+        }
+        .form-control{
+            border: 1px solid black !important;
+        }
+        .right{
+            margin: 0 auto;
+            width: 64%;
+        }
+       
+    </style>
+<script src="https://use.fontawesome.com/08500f7c81.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Tweet Tweet</h1>
+        <hr class="text-white w-auto">
+        <span class="errorMsg middle box3" style="display: none;"></span>
+        <div class="row">
+           <div class="col-lg-4 col-md-4 col-sm-12 box mt-5 mb-3">
+               <form>
+                    <input type="text" class="form-control middle w-75 product-name" placeholder="Type Tweet Text">
+                    <p class="keyNum"><span>0</span>/8</p>
+                    <button class="btn btn-dark btn-block middle2 w-50 addBtn">Submit</button>
+               </form>
+           </div>
+           <div class="col-lg-6 col-md-6  col-sm-12  m-0">
+              <input type="text" name="filter" class="form-control right filter" placeholder="Search Tweet">
+              <div class="box2 mt-2">
+                  <span class="msg middle4"></span>
+                 <ol class="middle3 collection">
+                     
+                 </ol>
+              </div>
+           </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/locale/zh-cn.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
