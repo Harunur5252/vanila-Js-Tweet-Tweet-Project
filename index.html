@@ -7,66 +7,15 @@
     <title>Tweet Tweet</title>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <style>
-        body{
-            background-color:darkolivegreen;
-        }
-        
-        .box{
-            height: 250px;
-            width: 250px;
-            border: 1px solid rgb(223, 8, 126);
-            background-color: tan;
-        }
-        .box2{
-            min-height: 250px;
-            min-width: 300px;
-            border: 1px solid rgb(20, 1, 12);
-            margin: 6%;
-            box-sizing: border-box;
-            background-color: tan;
-        }
-        .box3{
-            min-height: 20px;
-            min-width: 20px;
-            border: 1px solid rgb(223, 8, 8);
-            padding: 5px;
-            margin: 5px;
-        }
-        .middle{
-            margin-top: 20%;
-            margin-left: 8%;
-        }
-        .middle2{
-            margin-left: 22%;
-            margin-top: 8%;
-        }
-        .middle3{
-            margin-top: 8%;
-            margin-left: 15%;
-        }
-        .middle4{
-            margin-top: 20%;
-            margin-left: 37%;
-            color: black;
-        }
-        .form-control{
-            border: 1px solid black !important;
-        }
-        .right{
-            margin: 0 auto;
-            width: 64%;
-        }
-       
-    </style>
+    <link rel="stylesheet" href="src/styles/style.css">
 <script src="https://use.fontawesome.com/08500f7c81.js"></script>
 </head>
 <body>
     <div class="container">
         <h1 class="text-center">Tweet Tweet</h1>
         <hr class="w-auto">
-        <span class="errorMsg middle box3" style="display: none;"></span>
-        <div class="row">
+        <span class="errorMsg middle5 box3 text-center" style="display: none;"></span>
+        <div class="row justify-content-center">
            <div class="col-lg-4 col-md-4 col-sm-12 box mt-5 mb-3">
                <form>
                     <input type="text" class="form-control middle w-75 tweet-name" placeholder="Type Tweet Text">
@@ -91,6 +40,6 @@
     <script src="https://unpkg.com/dayjs@1.8.21/plugin/localizedFormat.js"></script>
     <script>dayjs.extend(window.dayjs_plugin_relativeTime)</script>
     <script>dayjs.extend(window.dayjs_plugin_localizedFormat)</script>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
 </body>
 </html>
