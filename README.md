@@ -17,7 +17,7 @@ This is tweet project like product catalogue but here are added some extra featu
 
 ## Project Picture
 
-![Digit Guessing Game!](/src/images/tweet_tweet.PNG "Digit Guessing Game")
+![Tweet Tweet!](/src/images/tweet_tweet.PNG "Tweet Tweet")
 
 
 This project has been created using **[webpack-cli](https://github.com/webpack/webpack-cli)**, you can now see the project in live server using this:
