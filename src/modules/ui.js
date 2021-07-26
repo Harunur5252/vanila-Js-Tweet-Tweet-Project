@@ -20,23 +20,23 @@ class UI{
     }
      // load all event
     loadAllEventListener = ()=>{
-      const {inputValueDisElm,addBtnDisElm,olDisElm,filterInputDisElm} = ui.selectors()
-      window.addEventListener('DOMContentLoaded',()=>ui.getData(data.tweetData))
+      const {inputValueDisElm,addBtnDisElm,olDisElm,filterInputDisElm} = this.selectors()
+      window.addEventListener('DOMContentLoaded',()=>this.getData(data.tweetData))
       inputValueDisElm.addEventListener('keydown',(e)=>data.checkWordLimit(e))
-      addBtnDisElm.addEventListener('click',(e)=>ui.addTweet(e))
-      olDisElm.addEventListener('click',(e)=>ui.modifyOrDeleteTweet(e))
-      filterInputDisElm.addEventListener('keyup',(e)=>ui.searchTweet(e))
+      addBtnDisElm.addEventListener('click',(e)=>this.addTweet(e))
+      olDisElm.addEventListener('click',(e)=>this.modifyOrDeleteTweet(e))
+      filterInputDisElm.addEventListener('keyup',(e)=>this.searchTweet(e))
     }
     // show message if tweet found or not
     showMessage=(msg ='')=>{
-      const {msgDisElm} = ui.selectors()  
+      const {msgDisElm} = this.selectors()  
       msgDisElm.textContent=msg
     }
     // getting data form store and populate ul
     getData=(tweetList)=>{
-      const {olDisElm} = ui.selectors()  
+      const {olDisElm} = this.selectors()  
         if(tweetList.length>0){
-            ui.showMessage()
+            this.showMessage()
             let li=''
             tweetList.forEach(tweet => {
                 li = document.createElement('li')
@@ -52,11 +52,11 @@ class UI{
             });
     
         }else{
-            ui.showMessage('No item to show')
+            this.showMessage('No item to show')
         }
     }
     invalidInputMsg=()=>{
-      const {errorMsgDisElm} = ui.selectors()  
+      const {errorMsgDisElm} = this.selectors()  
       errorMsgDisElm.style.display=''
       errorMsgDisElm.textContent='Enter text between 1-15'
       errorMsgDisElm.style.backgroundColor='yellow'
@@ -67,12 +67,12 @@ class UI{
       },2000)
     }
     resetInputValue=()=>{
-      const {inputValueDisElm} = ui.selectors() 
+      const {inputValueDisElm} = this.selectors() 
       inputValueDisElm.value=''
     }
     // adding tweet
     addTweet=(e)=>{
-      const {inputValueDisElm,olDisElm,keyNumElm} = ui.selectors()  
+      const {inputValueDisElm,olDisElm,keyNumElm} = this.selectors()  
       const {
           date,time,checkTimeFromNow
       } = data.getDateTime()
@@ -81,7 +81,7 @@ class UI{
       let name = inputValueDisElm.value
       const isInputOk = data.inValidInput(name)
       if(isInputOk){
-          ui.invalidInputMsg()
+        this.invalidInputMsg()
       }else{
           const tweetName= name.trim()
           const tweetData={
@@ -93,15 +93,15 @@ class UI{
           }
           olDisElm.innerHTML=''
           data.tweetData.push(tweetData)
-          ui.getData(data.tweetData)
+          this.getData(data.tweetData)
           storage.saveDataToLocalStorage(tweetData)
           data.num=0
           keyNumElm.textContent=data.num
-          ui.resetInputValue()
+          this.resetInputValue()
       }
     }
     populateEditItem=(foundTweet)=>{
-      const {inputValueDisElm,addBtnDisElm,keyNumElm} = ui.selectors()  
+      const {inputValueDisElm,addBtnDisElm,keyNumElm} = this.selectors()  
       inputValueDisElm.value = foundTweet.tweetName
       addBtnDisElm.style.display = 'none'
       const updateBtn =
@@ -112,7 +112,7 @@ class UI{
       keyNumElm.textContent = checkCharCount
     }
     updateTweetItem=(id)=>{
-      const {inputValueDisElm,olDisElm,keyNumElm,addBtnDisElm} = ui.selectors()  
+      const {inputValueDisElm,olDisElm,keyNumElm,addBtnDisElm} = this.selectors()  
           document.querySelector('.update-tweet').addEventListener('click',(e)=>{
               e.preventDefault()
               const isInputOk = data.inValidInput(inputValueDisElm.tweetName)
@@ -122,8 +122,8 @@ class UI{
                   data.updateTweetData(id)
               }
               olDisElm.innerHTML=''
-              ui.getData(data.tweetData)
-              ui.resetInputValue()
+              this.getData(data.tweetData)
+              this.resetInputValue()
               addBtnDisElm.style.display = 'block'
               document.querySelector('.update-tweet').remove()
               //save updated array to localStorage
@@ -143,10 +143,10 @@ class UI{
           }else if(e.target.classList.contains('tweet-edit')){
               const foundTweet = data.findTweet(id)
               //i have to select the item to edit
-              ui.populateEditItem(foundTweet)
+              this.populateEditItem(foundTweet)
               e.target.style.display='none'
               //update tweet
-              ui.updateTweetItem(foundTweet.id)
+              this.updateTweetItem(foundTweet.id)
            }
     }
     // search tweet from view
@@ -163,9 +163,9 @@ class UI{
               }
           })
           if(itemLength>0){
-              ui.showMessage('')
+              this.showMessage('')
           }else{
-              ui.showMessage('No item found')
+              this.showMessage('No item found')
           }
     }
   

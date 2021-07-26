@@ -56,12 +56,19 @@ class Data{
         return foundTweet
     }
     updateTweetData=(id)=>{
-        const {inputValueDisElm} = ui.selectors() 
+        const {inputValueDisElm} = ui.selectors()
+        const date = dayjs().format('MMM/DD/YYYY')
+        const time = dayjs().format('LT')
+        const checkTime = dayjs().format()
+        const checkTimeFromNow = dayjs(checkTime).fromNow() 
         this.tweetData = this.tweetData.map((TweetItem) => {
             if (TweetItem.id === id) {
               return {
                 ...TweetItem,
                 tweetName: inputValueDisElm.value,
+                date,
+                time,
+                checkTimeFromNow
               }
             } else {
               return TweetItem
